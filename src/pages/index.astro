@@ -1,0 +1,68 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>🏀 The HalfCourt</h1>
+			<p>
+				NBA takes, film breakdowns, and box-score deep dives — for people who
+				watch too much basketball and want to argue about it.
+			</p>
+			<p>
+				New posts drop through the season. Read the latest on the
+				<a href="/blog">blog</a>, or get them in your inbox.
+			</p>
+			<form class="signup" action="#" method="post">
+				<label for="email" class="sr-only">Email address</label>
+				<input
+					id="email"
+					name="email"
+					type="email"
+					placeholder="you@email.com"
+					required
+				/>
+				<button type="submit">Join the newsletter</button>
+			</form>
+			<p class="signup-note">Free. A couple emails a week. No spam.</p>
+		</main>
+		<style>
+			.signup {
+				display: flex;
+				gap: 0.5em;
+				flex-wrap: wrap;
+				margin: 1.5em 0 0.5em;
+			}
+			.signup input {
+				flex: 1 1 220px;
+				padding: 0.6em 0.8em;
+				font-size: 1em;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 8px;
+			}
+			.signup button {
+				padding: 0.6em 1.2em;
+				font-size: 1em;
+				border: none;
+				border-radius: 8px;
+				background: var(--accent);
+				color: white;
+				cursor: pointer;
+			}
+			.signup-note {
+				font-size: 0.9em;
+				color: rgb(var(--gray));
+			}
+		</style>
+		<Footer />
+	</body>
+</html>

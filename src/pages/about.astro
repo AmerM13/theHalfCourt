@@ -1,0 +1,29 @@
+---
+import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="About The HalfCourt"
+	description="What this is and who's writing it."
+	pubDate={new Date('July 01 2026')}
+	heroImage={AboutHeroImage}
+>
+	<p>
+		The HalfCourt is a basketball blog and newsletter. Film breakdowns, box-score
+		deep dives, trade reactions, and the occasional bad take defended too
+		confidently. If you watch the League closely and like arguing about it, you're
+		in the right place.
+	</p>
+
+	<p>
+		Posts run through the season on the <a href="/blog">blog</a>, and the best of
+		it lands in the newsletter. No hot-take churn for its own sake — just honest
+		analysis from someone who watches too much basketball.
+	</p>
+
+	<p>
+		Want to reach out, pitch a topic, or tell me I'm wrong about your team?
+		Find The HalfCourt on X, or reply to any newsletter email.
+	</p>
+</Layout>
