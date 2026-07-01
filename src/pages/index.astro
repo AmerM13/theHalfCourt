@@ -12,57 +12,181 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🏀 The HalfCourt</h1>
-			<p>
-				NBA takes, film breakdowns, and box-score deep dives — for people who
-				watch too much basketball and want to argue about it.
-			</p>
-			<p>
-				New posts drop through the season. Read the latest on the
-				<a href="/blog">blog</a>, or get them in your inbox.
-			</p>
-			<form class="signup" action="#" method="post">
-				<label for="email" class="sr-only">Email address</label>
-				<input
-					id="email"
-					name="email"
-					type="email"
-					placeholder="you@email.com"
-					required
-				/>
-				<button type="submit">Join the newsletter</button>
-			</form>
-			<p class="signup-note">Free. A couple emails a week. No spam.</p>
+		<main class="home">
+			<section class="hero">
+				<div class="hero-copy">
+					<h1>The stories<br />beneath<br />the stats.</h1>
+					<p class="lede">
+						Basketball is constantly evolving, but the best stories aren't
+						always told in the moment. The HalfCourt revisits players, teams,
+						and ideas through a combination of analytics, the eye test, and
+						careful research.
+					</p>
+					<p class="signup-label">Join our Free Newsletter:</p>
+					<form class="signup" action="#" method="post">
+						<label for="email" class="sr-only">Email address</label>
+						<input
+							id="email"
+							name="email"
+							type="email"
+							placeholder="Email"
+							required
+						/>
+						<button type="submit">Join</button>
+					</form>
+				</div>
+				<div class="hero-art" aria-hidden="true">
+					<img
+						class="silh"
+						src="/silhouettes/kl-shot.png"
+						alt=""
+						loading="eager"
+					/>
+				</div>
+			</section>
+
+			<hr class="courtline" />
+
+			<section class="latest">
+				<div class="latest-head">
+					<h2>Latest</h2>
+					<a class="all" href="/blog">All posts →</a>
+				</div>
+			</section>
 		</main>
+		<Footer />
 		<style>
+			.home {
+				width: 1100px;
+				max-width: calc(100% - 2em);
+				padding: 3.5em 1em 4em;
+			}
+			.hero {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+				gap: 2.5em;
+				align-items: center;
+			}
+			.home .courtline {
+				margin-top: 2.5em;
+			}
+			.hero-copy {
+				max-width: 640px;
+			}
+			.hero-art {
+				position: relative;
+				height: 520px;
+				display: flex;
+				align-items: flex-end;
+				justify-content: center;
+			}
+			/* orange disc behind the figures */
+			.hero-art::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: min(340px, 88%);
+				aspect-ratio: 1;
+				transform: translate(-50%, -50%);
+				background: var(--orange);
+				border-radius: 50%;
+				z-index: 0;
+			}
+			.silh {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -57%);
+				height: 108%;
+				width: auto;
+				z-index: 1;
+				object-fit: contain;
+				filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.25));
+				pointer-events: none;
+			}
+			@media (max-width: 760px) {
+				.hero {
+					grid-template-columns: 1fr;
+				}
+				.hero-art {
+					height: 360px;
+					margin-top: 1em;
+				}
+			}
+			.hero h1 {
+				font-size: clamp(3.2rem, 8vw, 5.5rem);
+				line-height: 0.92;
+				margin: 0.1em 0 0.35em;
+			}
+			.lede {
+				font-size: 1.2rem;
+				color: rgb(var(--gray-dark));
+				max-width: 48ch;
+				margin-bottom: 1.6em;
+			}
 			.signup {
 				display: flex;
 				gap: 0.5em;
 				flex-wrap: wrap;
-				margin: 1.5em 0 0.5em;
+				max-width: 420px;
 			}
 			.signup input {
-				flex: 1 1 220px;
-				padding: 0.6em 0.8em;
-				font-size: 1em;
-				border: 1px solid rgb(var(--gray-light));
-				border-radius: 8px;
+				flex: 1 1 200px;
+				padding: 0.7em 0.9em;
+				font-size: 1rem;
+				border: 2px solid rgb(var(--ink));
+				border-radius: 6px;
+				background: #fff;
+			}
+			.signup input:focus-visible {
+				outline: 3px solid var(--orange);
+				outline-offset: 1px;
 			}
 			.signup button {
-				padding: 0.6em 1.2em;
-				font-size: 1em;
-				border: none;
-				border-radius: 8px;
-				background: var(--accent);
-				color: white;
+				font-family: var(--font-display), sans-serif;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				font-size: 1.05rem;
+				padding: 0.55em 1.4em;
+				border: 2px solid rgb(var(--ink));
+				border-radius: 6px;
+				background: var(--orange);
+				color: rgb(var(--ink));
 				cursor: pointer;
 			}
-			.signup-note {
-				font-size: 0.9em;
-				color: rgb(var(--gray));
+			.signup button:hover {
+				background: var(--orange-dark);
+				color: #fff;
+			}
+			.signup-label {
+				font-family: var(--font-display), sans-serif;
+				font-weight: 600;
+				font-size: 1.05rem;
+				margin-top: 1.6em;
+				margin-bottom: 0.7em;
+			}
+			.latest {
+				margin-top: 2.5em;
+			}
+			.latest-head {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: 1em;
+			}
+			.latest-head h2 {
+				margin: 0;
+			}
+			.all {
+				font-family: var(--font-display), sans-serif;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				font-size: 1rem;
+				text-decoration: none;
 			}
 		</style>
-		<Footer />
 	</body>
 </html>

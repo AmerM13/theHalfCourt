@@ -38,16 +38,22 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.title {
 				margin-bottom: 1em;
-				padding: 1em 0;
+				padding: 0.5em 0 1em;
 				text-align: center;
-				line-height: 1;
+				line-height: 1.05;
 			}
 			.title h1 {
-				margin: 0 0 0.5em 0;
+				margin: 0 0 0.4em 0;
+				font-size: clamp(2.4rem, 6vw, 3.4rem);
 			}
 			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
+				font-family: var(--font-display), sans-serif;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				font-size: 0.9rem;
+				margin-bottom: 0.6em;
+				color: var(--orange);
 			}
 			.last-updated-on {
 				font-style: italic;
