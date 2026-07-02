@@ -50,6 +50,8 @@ main {
 	max-width: calc(100% - 2em);
 	margin: 0 auto;
 	padding: 3em 1em;
+	padding-left: max(1em, env(safe-area-inset-left));
+	padding-right: max(1em, env(safe-area-inset-right));
 	flex: 1 0 auto;
 }
 
