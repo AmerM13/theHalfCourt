@@ -8,6 +8,10 @@ import HeaderLink from './HeaderLink.astro';
 		<a class="brand" href="/" aria-label={SITE_TITLE}>
 			<img src="/logo-trimmed.png" alt={SITE_TITLE} />
 		</a>
+		<input type="checkbox" id="nav-toggle" class="nav-toggle sr-only" />
+		<label class="hamburger" for="nav-toggle" aria-label="Toggle menu">
+			<span></span><span></span><span></span>
+		</label>
 		<div class="links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
@@ -74,6 +78,22 @@ import HeaderLink from './HeaderLink.astro';
 		object-fit: contain;
 		border-radius: 0;
 	}
+	.hamburger {
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		gap: 5px;
+		width: 44px;
+		height: 44px;
+		padding: 0 10px;
+		cursor: pointer;
+	}
+	.hamburger span {
+		display: block;
+		height: 3px;
+		border-radius: 2px;
+		background: rgb(var(--ink));
+	}
 	.links {
 		display: flex;
 		align-items: center;
@@ -107,20 +127,38 @@ import HeaderLink from './HeaderLink.astro';
 	}
 	@media (max-width: 520px) {
 		nav {
-			flex-direction: column;
-			gap: 0.3em;
-			padding: 0.6em 0;
+			position: relative;
 		}
 		.brand img {
-			max-height: 110px;
+			max-height: 96px;
+		}
+		.hamburger {
+			display: flex;
 		}
 		.links {
-			justify-content: center;
-			flex-wrap: wrap;
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			z-index: 20;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 0;
+			background: var(--orange);
+			border-bottom: 3px solid rgb(var(--ink));
+			padding: 0.4em 0 0.6em;
+		}
+		.nav-toggle:checked ~ .links {
+			display: flex;
 		}
 		.links :global(a) {
-			padding: 0.35em 0.5em;
-			font-size: 0.95rem;
+			padding: 0.7em 1.2em;
+			font-size: 1.05rem;
+			border-radius: 0;
+		}
+		.links :global(a.social) {
+			padding: 0.7em 1.2em;
 		}
 	}
 </style>
