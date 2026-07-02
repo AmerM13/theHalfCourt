@@ -93,6 +93,18 @@ import HeaderLink from './HeaderLink.astro';
 		height: 3px;
 		border-radius: 2px;
 		background: rgb(var(--ink));
+		transition:
+			transform 0.3s ease,
+			opacity 0.2s ease;
+	}
+	.nav-toggle:checked ~ .hamburger span:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	}
+	.nav-toggle:checked ~ .hamburger span:nth-child(2) {
+		opacity: 0;
+	}
+	.nav-toggle:checked ~ .hamburger span:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
 	}
 	.links {
 		display: flex;
@@ -125,6 +137,15 @@ import HeaderLink from './HeaderLink.astro';
 		align-items: center;
 		padding: 0.35em 0.45em;
 	}
+	@media (prefers-reduced-motion: reduce) {
+		.links,
+		.nav-toggle:checked ~ .links,
+		.links :global(a),
+		.nav-toggle:checked ~ .links :global(a),
+		.hamburger span {
+			transition: none;
+		}
+	}
 	@media (max-width: 520px) {
 		nav {
 			position: relative;
@@ -136,7 +157,7 @@ import HeaderLink from './HeaderLink.astro';
 			display: flex;
 		}
 		.links {
-			display: none;
+			display: flex;
 			position: absolute;
 			top: 100%;
 			left: 0;
@@ -147,10 +168,45 @@ import HeaderLink from './HeaderLink.astro';
 			gap: 0;
 			background: var(--orange);
 			border-bottom: 3px solid rgb(var(--ink));
-			padding: 0.4em 0 0.6em;
+			padding: 0 0 0;
+			max-height: 0;
+			opacity: 0;
+			overflow: hidden;
+			visibility: hidden;
+			transform: translateY(-6px);
+			transition:
+				max-height 0.3s ease,
+				opacity 0.22s ease,
+				transform 0.3s ease,
+				padding 0.3s ease,
+				visibility 0s linear 0.3s;
 		}
 		.nav-toggle:checked ~ .links {
-			display: flex;
+			max-height: 420px;
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+			padding: 0.4em 0 0.6em;
+			transition:
+				max-height 0.32s ease,
+				opacity 0.25s ease 0.03s,
+				transform 0.32s ease,
+				padding 0.32s ease,
+				visibility 0s linear 0s;
+		}
+		.links :global(a) {
+			opacity: 0;
+			transform: translateY(-4px);
+			transition:
+				opacity 0.2s ease,
+				transform 0.2s ease;
+		}
+		.nav-toggle:checked ~ .links :global(a) {
+			opacity: 1;
+			transform: translateY(0);
+			transition:
+				opacity 0.25s ease 0.08s,
+				transform 0.25s ease 0.08s;
 		}
 		.links :global(a) {
 			padding: 0.7em 1.2em;
