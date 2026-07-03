@@ -8,7 +8,7 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, author } = Astro.props;
 ---
 
 <html lang="en">
@@ -58,6 +58,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+			.byline {
+				margin: 0 0 0.8em;
+				font-family: var(--font-display), sans-serif;
+				font-weight: 600;
+				font-size: 1rem;
+				color: rgb(var(--gray));
+			}
 		</style>
 	</head>
 
@@ -81,6 +88,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 							}
 						</div>
 						<h1>{title}</h1>
+						{author && <p class="byline">By {author}</p>}
 						<hr />
 					</div>
 					<slot />
