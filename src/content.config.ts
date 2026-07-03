@@ -6,7 +6,7 @@ const blog = defineCollection({
 	// Load Markdown and MDX files in the `src/content/blog/` directory.
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	// Type-check frontmatter using a schema
-	schema: ({ image }) =>
+	schema: () =>
 		z.object({
 			title: z.string(),
 			description: z.string(),
@@ -14,7 +14,9 @@ const blog = defineCollection({
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
-			heroImage: z.optional(image()),
+			// Path to an image in /public (e.g. '/images/foo.jpg'). Served as a
+			// static file — avoids Netlify's on-demand /_image endpoint (404s here).
+			heroImage: z.string().optional(),
 		}),
 });
 

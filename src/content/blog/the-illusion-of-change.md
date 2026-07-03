@@ -3,7 +3,7 @@ title: 'The Illusion of Change'
 description: 'Kristaps Porzingis has changed teams, roles, and skills for nearly a decade — and stayed the exact same caliber of player. A study of basketball''s ultimate stagnation.'
 author: 'AM'
 pubDate: 'Jul 02 2026'
-heroImage: './illusion-of-change.jpg'
+heroImage: '/images/illusion-of-change.jpg'
 ---
 
 The NBA is most definitely a league of restlessness, defined by consistent change. Every year, some players get better while others get worse. Amidst all this development and regression, there are even some players who simply don't change, filling the same role for years on end, for better or worse. However, there is something that, in a way, is even more saddening than a major regression. That state is something that I like to call, "The Illusion of Change", referring to the constant adaptation and development of new skills that ultimately leads to little to no increase or decrease in production. The ultimate form of stagnation, despite making every effort to rebrand yourself into something new and improved. There are many players who are in this state for a couple years. However, there is one who has been in this state for nearly a decade. The Illusion of Change relates to no other player better than it relates to Kristaps Porzingis.
