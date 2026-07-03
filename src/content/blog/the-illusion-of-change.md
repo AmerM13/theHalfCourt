@@ -1,6 +1,6 @@
 ---
 title: 'The Illusion of Change'
-description: 'Kristaps Porzingis has changed teams, roles, and skills for nearly a decade — and stayed the exact same caliber of player. A study of basketball''s ultimate stagnation.'
+description: 'Kristaps Porzingis has changed teams, roles, and skillsets for nearly a decade, yet has stayed the same caliber of player. How and why did this come to be?'
 author: 'AM'
 pubDate: 'Jul 02 2026'
 heroImage: '/images/illusion-of-change.jpg'
